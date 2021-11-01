@@ -1,8 +1,24 @@
 
 const tail = require ('../tail');
-const assertEqualArray = require('../assertArraysEqual');
+const assert = require('chai').assert;
 
 
-// TEST CODE
-assertEqualArray(tail([5,6,7]), [6,7]);
-assertEqualArray(tail(["Hello", "Lighthouse", "Labs"]), ["Lighthouse", "Labs"]);
+describe("#tail", () => {
+  it('returns Lighthouse from the ["Hello", "Lighthouse", "Labs"]', () => {
+    const result = tail(["Hello", "Lighthouse", "Labs"]);
+    assert.strictEqual(result[0],"Lighthouse");
+
+  });
+
+  it('returns Labs from the ["Hello", "Lighthouse", "Labs"]', () => {
+    const result = tail(["Hello", "Lighthouse", "Labs"]);
+    assert.strictEqual(result[1],"Labs");
+
+  });
+
+  it('returns length of the array as 2', () => {
+    const result = tail(["Hello", "Lighthouse", "Labs"]);
+    assert.strictEqual(result.length,2);
+
+  });
+})
